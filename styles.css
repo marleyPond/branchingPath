@@ -1,0 +1,193 @@
+:root{
+    --mpblack: #191719;
+    --mpwhite: #FFFFFFF;
+    --mpbrown: #919387;
+    --mppurple: #695E67;
+    --mpviolet: #8E8C9B;
+    /*get new color scheme, but root scope is global, and use with var(--mpblack)*/
+}
+
+a {
+    font-size: 1em;
+}
+
+hr {
+    margin: 10px 50px;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+button#smButton {
+    margin: 2px;
+    border-radius: 30px;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: normal;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+body {
+    background-color:var(--mpwhite);
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1091px;
+}
+
+#blog-content {
+    font-size: large;
+}
+
+/*violators*/
+.grid-container {
+    display: grid;
+    float: right;
+    bottom: 0vh;
+    right: 50%;
+    grid-auto-flow: column;
+    max-width: min-content;
+}
+
+.grid-container-pop {
+    display: grid;
+    position: absolute;
+    bottom: 50%;
+    left: auto;
+    right: auto;
+    grid-auto-flow: column;
+    max-width: 1091px;
+    max-height: 403px;
+}
+
+.grid-item {
+    margin: 0 1px;
+    cursor: pointer;
+}
+
+/*violators END ^^*/
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.grid a{
+    color: white;
+    text-decoration: none;
+} 
+
+.trbackground {
+    float:right;
+    position: relative;
+    top: 0;
+    right:0;
+    z-index: 0;
+    opacity: .25;
+    max-width: 100%;
+    height: auto;
+}
+
+.cover {
+    max-width: 100%;
+    height: auto;
+}
+
+
+figure {
+    margin:0;
+    width: 310px;
+    background: radial-gradient(circle, rgba(136,136,136,1) 0%, rgba(0,0,0,1) 100%, rgba(180,180,183,1) 100%);
+    max-width: 100%;
+    height: auto;
+}
+
+.textover img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.textover {
+    position: relative;
+    text-align: center;
+}
+
+.textover figcaption {
+    position: absolute;
+    text-shadow: 3px 1px 2px black;
+    font-size: 25px;
+    padding: 20px;
+    bottom: 30px;
+}
+
+img.float1 {
+    border-radius: 50px;
+    max-height: 75px;
+    max-width: 75px;
+
+}
+
+img.float2 {
+    border-radius: 500px;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0 auto 20px auto;
+}
+
+h2.title {
+    margin: 0 25%;
+}
+
+div.left {
+    float: left;
+    width: 50%;
+}
+
+div.right {
+    float: right;
+    width: 50%;
+}
+
+#banner {
+    display: block;
+    width: 100%;
+    max-width: 1091px;
+    max-height: 403px;
+    margin: 0 auto 20px auto;
+}
+
+#subtitle {
+    font-style: italic;
+    font-weight: normal;
+}
+
+#content {
+    font-size: large;
+}
+
+@media (max-width: 640px) {
+    div.left, div.right{
+        float: none;
+        width: 100%;
+   }
+
+    h2 {
+        width: 50%;
+    }
+}
+
+@media (max-width: 360px) {
+    .textover figcaption {
+        font-size: 15px;
+    }
+}
