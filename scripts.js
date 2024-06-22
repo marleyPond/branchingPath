@@ -23,6 +23,14 @@ function loadBlogs(now) {
     blogStack += decorateTitle(`Transactional Relationship Dynamics`, `romancingPath1`, `galleryRomancingPath`);
     blogStack += decorateTitle(`Active Listening and Reactive Narrative Design`, `branchingPathology1`, `galleryBranchingPathology`);
 
+    //test block
+    blogStack += emptyTile(`galleryBanashiPathCast`);
+    blogStack += emptyTile(`galleryBlanchingPath`);
+    blogStack += emptyTile(`galleryBranchingKata`);
+    blogStack += emptyTile(`galleryBrandingPath`);
+    blogStack += emptyTile(`galleryBranchingLaugh`);
+    blogStack += emptyTile(`galleryRanchingPath`);
+
     blogStack = addEmptyFigures(blogStack, 1);
     document.getElementById("blog-content").innerHTML = wrapInGrid(blogStack);
 }
@@ -79,6 +87,15 @@ function decorateTitle(s, l, c) {
                 <figcaption>`+s+`</figcaption>
                 </a>
             </figure>`;
+}
+
+function emptyTile(c) {
+    return  `<figure class="textover">
+                <a href="#">
+                <img src="images/`+c+`.png" alt="alt">
+                <figcaption>`+`test title`+`</figcaption>
+                </a>
+            </figure>`
 }
 
 function decorateOldTitle(s, l, c) {
