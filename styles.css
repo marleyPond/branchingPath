@@ -7,10 +7,6 @@
     /*get new color scheme, but root scope is global, and use with var(--mpblack)*/
 }
 
-a {
-    font-size: 1em;
-}
-
 hr {
     margin: 10px 50px;
 }
@@ -82,6 +78,7 @@ body {
 .grid a{
     color: white;
     text-decoration: none;
+    overflow: hidden;
 } 
 
 .trbackground {
@@ -103,14 +100,15 @@ body {
 
 figure {
     margin:0;
-    width: 310px;
+    width: 100%;
     background: radial-gradient(circle, rgba(136,136,136,1) 0%, rgba(0,0,0,1) 100%, rgba(180,180,183,1) 100%);
-    max-width: 100%;
-    height: auto;
+    max-width: 310px;
+    height:max-content;
+    max-height: 310px;
 }
 
 .textover img {
-    width: 100%;
+    width: 310px;
     max-width: 100%;
     height: auto;
 }

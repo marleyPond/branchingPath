@@ -20,9 +20,10 @@ function loadBlogs(now) {
     var blogStack = ``;
     /*load new blogs to top of list*/
     
+    blogStack += decorateTitle(`Transactional Relationship Dynamics`, `romancingPath1`, `galleryRomancingPath`);
     blogStack += decorateTitle(`Active Listening and Reactive Narrative Design`, `branchingPathology1`, `galleryBranchingPathology`);
 
-    blogStack = addEmptyFigures(blogStack, 2);
+    blogStack = addEmptyFigures(blogStack, 1);
     document.getElementById("blog-content").innerHTML = wrapInGrid(blogStack);
 }
 
