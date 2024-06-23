@@ -15,6 +15,7 @@
 
         <!--Load scripts-->
         <script src="/components/header.js" type="text/javascript" defer></script>
+        <script src="/components/footer.js" type="text/javascript" defer></script>
         <script src="/components/violators.js" type="text/javascript" defer></script>
         <script src="/scripts.js" type="text/javascript" defer></script>
 
@@ -24,10 +25,27 @@
 
     <header-component></header-component>
     
+        <p><h2 style="display: inline; padding-left:50%;"><u>Galler</u>y</h2>
+            <div class="gallerySort">
+                <label for="gsort">filter by:</label>
 
-        <h2><u>Galler</u>y</h2>
+                <select name="gsort" id="gsort" onclick="filterUpdate(this.value)">
+                <option value="none"></option>
+                <option value="galleryBanashiPathCast">Banashi PathCast</option>
+                <option value="galleryBranchingKata">Branching Kata</option>
+                <option value="galleryBranchingLaugh">Branching Laugh</option>
+                <option value="galleryBlanchingPath">Blanching Path</option>
+                <option value="galleryBranchingPathology">Branching Pathology</option>
+                <option value="galleryBrandingPath">Branding Path</option>
+                <option value="galleryRanchingPath">Ranching Path</option>
+                <option value="galleryRomancingPath">Romancing Path</option>
+                </select> 
+            </div>
+        </p>
         <div id="blog-content"></div>
 
     </body>
+
+    <footer-component></footer-component>
 
 </html>
