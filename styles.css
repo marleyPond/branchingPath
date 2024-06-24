@@ -20,6 +20,10 @@ button#smButton {
     border-radius: 30px;
 }
 
+i:hover {
+    cursor: pointer;
+}
+
 h1 {
     text-align: center;
     font-family: "Source Sans Pro", sans-serif;
@@ -208,7 +212,7 @@ div.right {
     .gallerySort {
         float: none;
         width: 100;
-        padding-left: 45%;
+        padding-left: 40%;
         padding-top: 10px;
     }
 }

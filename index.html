@@ -25,9 +25,9 @@
 
     <header-component></header-component>
     
-        <p><h2 style="display: inline; padding-left:50%;"><u>Galler</u>y</h2>
+        <p><h2 id="galleryLabel" style="display: inline; padding-left:50%;"><u>Galler</u>y</h2>
             <div class="gallerySort">
-                <label for="gsort">filter by:</label>
+                <label for="gsort"></label>
 
                 <select name="gsort" id="gsort" onclick="filterUpdate(this.value)">
                 <option value="none"></option>
@@ -39,7 +39,9 @@
                 <option value="galleryBrandingPath">Branding Path</option>
                 <option value="galleryRanchingPath">Ranching Path</option>
                 <option value="galleryRomancingPath">Romancing Path</option>
-                </select> 
+                </select>
+                <i class="material-icons" onclick="tryLeft()">arrow_back</i>
+                <i class="material-icons" onclick="tryRight()">arrow_forward</i>
             </div>
         </p>
         <div id="blog-content"></div>

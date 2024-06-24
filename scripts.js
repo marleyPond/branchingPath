@@ -1,8 +1,11 @@
 function loadContent() {
-    var now = getNow();
+    window['now'] = getNow();
     window['json'] = prepareJSON();
-
-    loadBlogs(now, json, "none");
+    window['current'] = 0;
+    window['final'] = json['all'].length-1;
+    window['filterData'] = [];
+    window['galleryDisplayAmount'] = 9;
+    loadBlogs(json, "none");
 
  }
 
@@ -12,7 +15,19 @@ function getNow() {
 }
 
 function filterUpdate(v){
-    loadBlogs(getNow(), json, v);
+    current = "1";
+    final = json['all'].length-1;
+    loadBlogs(json, v);
+}
+
+function tryLeft() {
+    current = Math.max(current-galleryDisplayAmount, 0);
+    loadBlogs(null);
+}
+
+function tryRight() {
+    current = Math.min(current + galleryDisplayAmount, final);
+    loadBlogs(null);
 }
 
 /* 
@@ -26,64 +41,133 @@ function isReleased(now, releaseDate){
     return false;
 }
 
-function loadBlogs(now, data, filter) {
+function loadBlogs(data, filter) {
     var blogStack = ``;
-    /*load new blogs to top of list*/
     
-    
-    //blogStack += decorateTitle(`Transactional Relationship Dynamics`, `romancingPath1`, `galleryRomancingPath`);
-    //blogStack += decorateTitle(`Active Listening and Reactive Narrative Design`, `branchingPathology1`, `galleryBranchingPathology`);
 
-    data.forEach((item) => {
-        if(isReleased(now, item.releaseDate)){
-            if( filter == "none" || filter == item.imageCategoryName){
-                blogStack += decorateTitle(item.title, item.fileName, item.imageCategoryName);
-            }
-        }
-    });
-
-    //test block
-    if(true){
-        if(filter == "none" || filter == `galleryBanashiPathCast`)
-            blogStack += emptyTile(`galleryBanashiPathCast`);
-        if(filter == "none" || filter == `galleryBlanchingPath`)
-            blogStack += emptyTile(`galleryBlanchingPath`);
-        if(filter == "none" || filter == `galleryBranchingKata`)
-            blogStack += emptyTile(`galleryBranchingKata`);
-        if(filter == "none" || filter == `galleryBrandingPath`)
-            blogStack += emptyTile(`galleryBrandingPath`);
-        if(filter == "none" || filter == `galleryBranchingLaugh`)
-            blogStack += emptyTile(`galleryBranchingLaugh`);
-        if(filter == "none" || filter == `galleryRanchingPath`)
-            blogStack += emptyTile(`galleryRanchingPath`);
-        if(filter == "none" || filter == `galleryAGatheringDarkly`)
-            blogStack += emptyTile(`galleryAGatheringDarkly`);
+    if(data === null){  //bypass
+        if(current >= final) return;
+        for(var i = current; i < Math.min(current + galleryDisplayAmount, final); i++){
+            blogStack += decorateTitle(filterData[i].title, filterData[i].fileName, filterData[i].imageCategoryName);
+        };
+        blogStack = addEmptyFigures(blogStack, 2); //buffer, leave for max columns-1
+        document.getElementById("blog-content").innerHTML = wrapInGrid(blogStack);
+        return;
     }
+
+    var allData = data.all;
+    var filterArgs = d => now - d.releaseDate >= 0 && (filter == 'none' || filter == d.imageCategoryName);
+    filterData = allData.filter(filterArgs);
+    final = filterData.length;
+    current = 0;
+    /*load new blogs to top of list*/
+
+    for(var i = 0; i < Math.min(6,final); i++){
+        blogStack += decorateTitle(filterData[i].title, filterData[i].fileName, filterData[i].imageCategoryName);
+    };
 
     blogStack = addEmptyFigures(blogStack, 2); //buffer, leave for max columns-1
     document.getElementById("blog-content").innerHTML = wrapInGrid(blogStack);
 }
 
 function prepareJSON() {    //top-down based on release!!
-    return [
-        
-        {
-            "id": "2",
-            "title": "Transactional Relationship Dynamics", 
-            "releaseDate": 20240622, 
-            "fileName": "romancingPath1", 
-            "imageCategoryName": "galleryRomancingPath"
-        },
-        {
-            "id": "1",
-            "title": "Active Listening and Reactive Narrative Design", 
-            "releaseDate": 20240621, 
-            "fileName": "branchingPathology1", 
-            "imageCategoryName": "galleryBranchingPathology"
-        }
-        
-    ];
-    //{"title": "", "releaseDate": , "fileName": "", "imageCategoryName": ""}
+    return {
+        "all": 
+        [
+            {
+                "id": "2",
+                "title": "Transactional Relationship Dynamics", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryRomancingPath"
+            },
+            {
+                "id": "1",
+                "title": "Active Listening and Reactive Narrative Design", 
+                "releaseDate": 20240621, 
+                "fileName": "branchingPathology1", 
+                "imageCategoryName": "galleryBranchingPathology"
+            }
+        ]
+    };
+}
+
+function DEBUGprepareJSON() {
+    return {
+        "all": 
+        [
+            {
+                "id": "10",
+                "title": "DEBUG 10", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryBranchingPathology"
+            },
+            {
+                "id": "9",
+                "title": "DEBUG 9", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryBranchingPathology"
+            },
+            {
+                "id": "8",
+                "title": "DEBUG 8", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryBranchingPathology"
+            },
+            {
+                "id": "7",
+                "title": "DEBUG 7", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryRomancingPath"
+            },
+            {
+                "id": "6",
+                "title": "DEBUG 6", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryRomancingPath"
+            },
+            {
+                "id": "5",
+                "title": "DEBUG 5", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryBranchingPathology"
+            },
+            {
+                "id": "4",
+                "title": "DEBUG 4", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryBranchingPathology"
+            },
+            {
+                "id": "3",
+                "title": "DEBUG 3", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryRomancingPath"
+            },
+            {
+                "id": "2",
+                "title": "DEBUG 2", 
+                "releaseDate": 20240622, 
+                "fileName": "romancingPath1", 
+                "imageCategoryName": "galleryRomancingPath"
+            },
+            {
+                "id": "1",
+                "title": "DEBUG 1", 
+                "releaseDate": 20240621, 
+                "fileName": "branchingPathology1", 
+                "imageCategoryName": "galleryBranchingPathology"
+            }
+        ]
+    };
 }
 
 function addEmptyFigures(n, i) {
