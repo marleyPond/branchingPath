@@ -9,9 +9,8 @@
         `
         <footer>
         <ul>
-            <li><a href="/">about</a></li>
-            <li><a href="/">contact</a></li>
-            <li><a href="/">work with me</a></li>
+            <li><a href="/about.html">about</a></li>
+            <li><a href="/workWithMe.html">work with me</a></li>
         </ul>
     </footer>
         `;
