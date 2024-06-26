@@ -95,6 +95,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .grid a{
@@ -182,7 +183,7 @@ div.right {
     width: 50%;
 }
 
-#banner {
+.banner {
     display: block;
     width: 100%;
     max-width: 1091px;

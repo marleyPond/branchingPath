@@ -8,7 +8,7 @@
         
         `
         <a href="/">
-          <img id="banner" src="/images/bannerInverse.png">
+          <img class="banner" src="/images/bannerInverse.png">
         </a>
         `;
     }

@@ -70,10 +70,17 @@ function loadBlogs(data, filter) {
     document.getElementById("blog-content").innerHTML = wrapInGrid(blogStack);
 }
 
-function prepareJSON() {    //top-down based on release!!
+function prepareJSON() {    //top-down based on release!! 
     return {
         "all": 
         [
+            {
+                "id": "3",
+                "title": "Navigating the Player-Designer Gap", 
+                "releaseDate": 20240626, 
+                "fileName": "branchingKata1", 
+                "imageCategoryName": "galleryBranchingKata"
+            },
             {
                 "id": "2",
                 "title": "Transactional Relationship Dynamics", 
