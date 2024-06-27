@@ -75,6 +75,13 @@ function prepareJSON() {    //top-down based on release!!
         "all": 
         [
             {
+                "id": "4",
+                "title": "Uniform and Function; Fashion Accessory to Murder", 
+                "releaseDate": 20240627, 
+                "fileName": "ranchingPath1", 
+                "imageCategoryName": "galleryRanchingPath"
+            },
+            {
                 "id": "3",
                 "title": "Navigating the Player-Designer Gap", 
                 "releaseDate": 20240626, 
