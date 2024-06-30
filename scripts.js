@@ -70,10 +70,17 @@ function loadBlogs(data, filter) {
     document.getElementById("blog-content").innerHTML = wrapInGrid(blogStack);
 }
 
-function prepareJSON() {    //top-down based on release!! 
+function prepareJSON() {    //top-down based on release!!  
     return {
         "all": 
         [
+            {
+                "id": "5",
+                "title": "Genre-Blending; Crawling Nodes and Skin", 
+                "releaseDate": 20240630, 
+                "fileName": "blanchingPath1", 
+                "imageCategoryName": "galleryBlanchingPath"
+            },
             {
                 "id": "4",
                 "title": "Uniform and Function; Fashion Accessory to Murder", 
